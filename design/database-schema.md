@@ -47,7 +47,7 @@ erDiagram
         VARCHAR(100) occupation
         VARCHAR(500) source_of_funds
         VARCHAR(20) risk_level NOT NULL
-        DECIMAL(10,2) expected_monthly_volume
+        DECIMAL expected_monthly_volume
         VARCHAR(100) customer_type NOT NULL
         BOOLEAN is_pep NOT NULL DEFAULT FALSE
         BOOLEAN is_active NOT NULL DEFAULT TRUE
@@ -76,7 +76,7 @@ erDiagram
         BIGINT id PK
         VARCHAR(100) transaction_id UK NOT NULL
         BIGINT customer_id FK NOT NULL
-        DECIMAL(19,4) amount NOT NULL
+        DECIMAL amount NOT NULL
         VARCHAR(3) currency NOT NULL
         VARCHAR(50) transaction_type NOT NULL
         TIMESTAMP transaction_date NOT NULL
@@ -88,7 +88,7 @@ erDiagram
         VARCHAR(100) channel
         VARCHAR(100) location
         VARCHAR(10) country_code
-        DECIMAL(19,4) amount_idr
+        DECIMAL amount_idr
         TIMESTAMP created_at NOT NULL DEFAULT CURRENT_TIMESTAMP
     }
 
@@ -103,7 +103,7 @@ erDiagram
         TIMESTAMP generated_at NOT NULL DEFAULT CURRENT_TIMESTAMP
         VARCHAR(20) status NOT NULL
         BIGINT rule_id FK
-        DECIMAL(5,2) risk_score
+        DECIMAL risk_score
         TEXT rule_triggered
         BOOLEAN is_high_priority NOT NULL DEFAULT FALSE
         TIMESTAMP reviewed_at
@@ -152,7 +152,7 @@ erDiagram
         BIGINT customer_id FK NOT NULL
         VARCHAR(50) screening_type NOT NULL
         BOOLEAN is_match NOT NULL
-        DECIMAL(5,2) confidence_score
+        DECIMAL confidence_score
         VARCHAR(255) matched_name
         VARCHAR(100) watchlist_name
         TIMESTAMP screened_at NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -235,7 +235,7 @@ erDiagram
         BIGINT id PK
         BIGINT customer_id FK NOT NULL
         VARCHAR(20) overall_risk NOT NULL
-        JSONB risk_factors
+        TEXT risk_factors
         DATE assessed_date NOT NULL
         BIGINT assessed_by FK NOT NULL
         VARCHAR(100) methodology
@@ -256,7 +256,7 @@ erDiagram
         DATE last_updated
         BOOLEAN is_active NOT NULL DEFAULT TRUE
         TEXT additional_info
-        JSONB metadata
+        TEXT metadata
         TIMESTAMP created_at NOT NULL DEFAULT CURRENT_TIMESTAMP
     }
 
@@ -266,7 +266,7 @@ erDiagram
         TEXT description
         VARCHAR(50) rule_type NOT NULL
         TEXT condition
-        DECIMAL(19,4) threshold
+        DECIMAL threshold
         BOOLEAN is_active NOT NULL DEFAULT TRUE
         DATE effective_date
         DATE expiry_date
@@ -286,7 +286,7 @@ erDiagram
         TIMESTAMP verified_at
         TEXT response_message
         VARCHAR(100) dukcapil_reference
-        JSONB verification_data
+        TEXT verification_data
         TIMESTAMP created_at NOT NULL DEFAULT CURRENT_TIMESTAMP
     }
 
